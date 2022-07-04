@@ -14,3 +14,4 @@ Heads up display features:
 - Total matches the player makes throughout the game 
 - Total time in minutes and seconds it takes the player to complete the game
 - Option to reset the deck and play again
+

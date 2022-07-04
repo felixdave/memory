@@ -11,11 +11,13 @@ const start = ref(true);
 let intervalID;
 
 function startTime() {
-	if (!intervalID) {
-		intervalID = setInterval(() => {
-			playTimer.value++;
-		}, 1000);
-	}
+	setTimeout(() => {
+		if (!intervalID) {
+			intervalID = setInterval(() => {
+				playTimer.value++;
+			}, 2000);
+		}
+	}, 3000);
 }
 function stopTime() {
 	clearInterval(intervalID);

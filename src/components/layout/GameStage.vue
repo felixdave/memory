@@ -23,7 +23,7 @@ function initGame() {
 	for (let i = 0; i < cardPairs.value; i++) {
 		tempArr.push(i + 1, i + 1);
 	}
-	// Shuffle array
+	// Shuffle array - (Fisher-Yates Shuffle)
 	// Loop from end, pick up card, get random card, and swap
 	for (let i = tempArr.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
