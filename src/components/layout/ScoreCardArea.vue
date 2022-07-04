@@ -24,7 +24,7 @@ function formatTimer(sec) {
 			Time
 			<span>{{ formatTimer(playTimer) }}</span>
 		</p>
-		<button v-if="reset" @click="$emit('resetEmit')">RESET</button>
+		<button v-if="reset" @click="$emit('resetEmit')">Reset</button>
 		<button v-else @click="$emit('playAgainEmit')">Play Again</button>
 	</div>
 	<transition name="animateShallWePlay" appear>

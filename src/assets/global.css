@@ -130,19 +130,24 @@ At Media
 @media screen and (max-width: 700px) and (orientation: portrait) {
 	#app {
 		flex-direction: column-reverse;
-		justify-content: space-between;
+		justify-content: flex-end;
 		align-items: center;
-		gap: 0;
+		gap: 2rem;
 	}
 	#scoreCard {
 		align-self: center;
 		z-index: 1;
 		max-width: 80%;
+		/* flex-grow: 1; */
+		align-content: flex-start;
+		padding: 1rem;
+		opacity: 0.8;
 	}
 	#gameStage {
 		gap: 0.5rem;
 		max-width: calc(85vh - 100px);
 		padding: 0.5rem;
+		background-color: red;
 	}
 }
 

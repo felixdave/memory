@@ -4,7 +4,7 @@ import GameStage from './components/layout/GameStage.vue';
 import ScoreCard from './components/layout/ScoreCardArea.vue';
 
 const playerMoves = ref(0);
-const totalMatches = ref(10);
+const totalMatches = ref(0);
 const playTimer = ref(0);
 const reset = ref(false);
 const start = ref(true);
