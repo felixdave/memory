@@ -1,0 +1,159 @@
+:root {
+	--yellow: rgba(246, 255, 0, 0.9);
+	--blue: #357dc6;
+}
+
+html {
+	font-size: 16px; /*Rem Basis*/
+}
+body {
+	font-family: Orbitron, Verdana, Geneva, Tahoma, sans-serif;
+	background-color: #fff;
+	background-image: radial-gradient(circle at center center, #459ef7, #e5e5f7),
+		repeating-radial-gradient(
+			circle at center center,
+			#459ef7,
+			#459ef7,
+			4px,
+			transparent 8px,
+			transparent 4px
+		);
+	background-blend-mode: multiply;
+}
+
+.unselectableHTML {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+/*************************
+Animate Game Start
+*************************/
+/* Enter */
+/* .animateStart-enter-active {
+} */
+.animateStart-enter-from {
+	opacity: 0;
+	transform: skew(-10deg, 11deg) scale(2) translate(45px, -17px);
+}
+.animateStart-enter-to {
+	opacity: 1;
+	transition: all 0.5s 1s ease-in-out;
+	transition-delay: 0.1s;
+	transform: skew(0deg, 0deg) scale(1) translate(0px, 0px);
+}
+/* Leave */
+/* .animateStart-leave-active {
+	transition: all 200ms ease;
+} */
+.animateStart-leave-from {
+	opacity: 1;
+}
+.animateStart-leave-to {
+	opacity: 0;
+}
+
+/************************
+Animate Match
+*************************/
+/* Enter */
+.animateMatch-enter-active {
+	transition: all 200ms ease;
+}
+.animateMatch-enter-from {
+	opacity: 0;
+	border-radius: 50%;
+	transform: scale(0);
+	width: 100vw;
+}
+.animateMatch-enter-to {
+	opacity: 1;
+}
+/* Leave */
+.animateMatch-leave-active {
+	transition: all 200ms ease;
+}
+.animateMatch-leave-from {
+	opacity: 1;
+	transform: scale(0);
+}
+.animateMatch-leave-to {
+	opacity: 0;
+	transform: scale(0);
+}
+
+/*************************
+Animate Card Fade
+*************************/
+.animateCardFade {
+	animation-name: animateCardFade;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	animation-delay: 1500ms;
+	z-index: 10;
+}
+
+@keyframes animateCardFade {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(2);
+		visibility: hidden;
+	}
+}
+
+/*************************
+At Media
+*************************/
+
+@media screen and (max-height: 700px) and (orientation: landscape) {
+	#gameStage {
+		gap: 0.5rem;
+		padding: 0.5rem;
+	}
+}
+@media screen and (max-width: 700px) and (orientation: portrait) {
+	#app {
+		flex-direction: column-reverse;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0;
+	}
+	#scoreCard {
+		align-self: center;
+		z-index: 1;
+		max-width: 80%;
+	}
+	#gameStage {
+		gap: 0.5rem;
+		max-width: calc(85vh - 100px);
+		padding: 0.5rem;
+	}
+}
+
+@media screen and (min-width: 700px) and (orientation: portrait) {
+	#app {
+		flex-direction: column-reverse;
+		justify-content: space-evenly;
+
+		gap: 1rem;
+	}
+	#scoreCard {
+		width: 300px;
+		align-self: center;
+	}
+	#gameStage {
+		width: 80%;
+	}
+}
+@media screen and (max-width: 400px) {
+	#gameStage {
+		gap: 0.3rem;
+		padding: 0rem;
+	}
+}
