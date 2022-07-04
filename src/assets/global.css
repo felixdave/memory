@@ -130,7 +130,8 @@ At Media
 		max-width: 80%;
 		/* flex-grow: 1; */
 		/* align-content: flex-start; */
-		padding-top: 2rem;
+		padding-top: 1rem;
+		padding-bottom: 0;
 	}
 	#gameStage {
 		gap: 0.5rem;
