@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 // Props
 defineProps(['value', 'isFaceUp', 'index']);
 // Emits

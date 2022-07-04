@@ -1,13 +1,24 @@
 <script setup>
+import { ref } from 'vue';
+
 // Props
 defineProps(['playerMoves', 'totalMatches', 'playTimer', 'start', 'reset']);
 // Emits
 const emit = defineEmits(['resetEmit', 'beginEmit', 'playAgainEmit']);
-
+// Vars
+const loading = ref(false);
+// Funcs
 function formatTimer(sec) {
 	let hour = Math.floor(sec / 60);
 	let seconds = (sec % 60).toString().length == 1 ? `0${sec % 60}` : sec % 60;
 	return `${hour}: ${seconds}`;
+}
+function startGame() {
+	loading.value = true;
+	setTimeout(() => {
+		emit('beginEmit');
+		loading.value = false;
+	}, 2000);
 }
 </script>
 
@@ -29,9 +40,11 @@ function formatTimer(sec) {
 	</div>
 	<transition name="animateShallWePlay" appear>
 		<div v-if="start" id="scoreCard">
-			<p class="center">Shall we play a game?</p>
-			<p class="center">Accessing Memory...</p>
-			<button @click.prevent="$emit('beginEmit')">START</button>
+			<p v-if="!loading" class="shallWe">Shall we play a game?</p>
+			<button v-if="!loading" @click.prevent="startGame">START</button>
+			<div v-else class="animateLoading">
+				<p>Loading Memory...</p>
+			</div>
 		</div>
 	</transition>
 </template>
@@ -61,9 +74,11 @@ function formatTimer(sec) {
 		flex: 1 1 100%;
 		justify-self: space-between;
 	}
-	.center {
+	.shallWe {
+		padding-top: 2rem;
 		text-align: center;
 	}
+
 	span {
 		float: right;
 	}
@@ -89,9 +104,9 @@ function formatTimer(sec) {
 		box-shadow: inset 2px 2px 5px rgb(50, 50, 50);
 	}
 }
-/* 
+/*
 - unselectableHTML in global.class
 - animation in global.css
-- @media in global.css  
+- @media in global.css
 */
 </style>

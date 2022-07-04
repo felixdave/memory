@@ -105,7 +105,20 @@ Animate Card Fade
 		visibility: hidden;
 	}
 }
-
+/*************************
+Animate Blink
+*************************/
+.animateLoading {
+	animation: blink 1s linear infinite;
+	text-align: center;
+	align-self: center;
+	padding-bottom: 1rem;
+}
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
 /*************************
 At Media
 *************************/
