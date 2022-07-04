@@ -130,16 +130,17 @@ At Media
 @media screen and (max-width: 700px) and (orientation: portrait) {
 	#app {
 		flex-direction: column-reverse;
-		justify-content: flex-end;
+		justify-content: center;
 		align-items: center;
 		gap: 2rem;
 	}
 	#scoreCard {
 		align-self: center;
+		/* justify-items: center; */
 		z-index: 1;
 		max-width: 80%;
 		/* flex-grow: 1; */
-		align-content: flex-start;
+		/* align-content: flex-start; */
 		padding: 1rem;
 		opacity: 0.8;
 	}
@@ -147,7 +148,7 @@ At Media
 		gap: 0.5rem;
 		max-width: calc(85vh - 100px);
 		padding: 0.5rem;
-		background-color: red;
+		/* background-color: red; */
 	}
 }
 
