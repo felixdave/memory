@@ -2,11 +2,11 @@
 // Props
 defineProps(['value', 'isFaceUp', 'index']);
 // Emits
-defineEmits(['selectedCard']);
+defineEmits(['selectedCardEmit']);
 </script>
 
 <template>
-	<div class="gameCard" :data-index="index" @click="$emit('selectedCard')">
+	<div class="gameCard" :data-index="index" @click="$emit('selectedCardEmit')">
 		<!-- Used for flip effect -->
 		<div class="cardInner unselectableHTML" :class="{ rotate: isFaceUp }">
 			<span class="cardFront">{{ value }}</span>

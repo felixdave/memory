@@ -14,6 +14,7 @@ function formatTimer(sec) {
 	return `${hour}: ${seconds}`;
 }
 function startGame() {
+	// loading card, wait,then start game
 	loading.value = true;
 	setTimeout(() => {
 		emit('beginEmit');

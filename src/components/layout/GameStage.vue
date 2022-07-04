@@ -14,8 +14,7 @@ const cardPairs = ref(12);
 const allCards = ref([]);
 const hand = ref([]);
 const displayMatch = ref(false);
-
-// Func Start Game
+// Funcs
 function initGame() {
 	const tempArr = [];
 
@@ -76,11 +75,6 @@ function checkCards(index) {
 		return false;
 	}
 }
-function startOver() {
-	start.value = true;
-	console.log('start over');
-}
-
 // Invocations
 initGame();
 </script>
@@ -96,7 +90,7 @@ initGame();
 				:value="card"
 				:isFaceUp="checkCards(index)"
 				:index="index"
-				@selectedCard="addCardToHand(index)"
+				@selectedCardEmit="addCardToHand(index)"
 			/>
 		</TransitionGroup>
 	</div>

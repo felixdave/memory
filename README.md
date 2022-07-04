@@ -1,6 +1,6 @@
 # Memory Game
 
-A highly responsive game written in Vue 3. 
+A mobile & desktop responsive game written in Vue 3. 
 
 ## Game Rules:
 At the start of the game, the user is presented with a grid of 24 facedown cards

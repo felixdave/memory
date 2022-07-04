@@ -11,13 +11,14 @@ const start = ref(true);
 let intervalID;
 
 function startTime() {
+	// Delay for card loading
 	setTimeout(() => {
 		if (!intervalID) {
 			intervalID = setInterval(() => {
 				playTimer.value++;
-			}, 2000);
+			}, 1000);
 		}
-	}, 3000);
+	}, 2500);
 }
 function stopTime() {
 	clearInterval(intervalID);
