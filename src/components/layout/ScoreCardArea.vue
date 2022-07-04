@@ -13,6 +13,7 @@ function formatTimer(sec) {
 	let seconds = (sec % 60).toString().length == 1 ? `0${sec % 60}` : sec % 60;
 	return `${minute}: ${seconds}`;
 }
+
 function startGame() {
 	// loading card, wait,then start game
 	loading.value = true;

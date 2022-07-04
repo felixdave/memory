@@ -16,6 +16,7 @@ function startTime() {
 		if (!intervalID) {
 			intervalID = setInterval(() => {
 				playTimer.value++;
+				console.log(intervalID);
 			}, 1000);
 		}
 	}, 2500);
@@ -42,6 +43,14 @@ function startGame() {
 	start.value = false;
 	reset.value = true;
 }
+function checkMatchNum(num) {
+	if (num == 12) {
+		stopTime();
+		return true;
+	} else {
+		return false;
+	}
+}
 </script>
 
 <template>
@@ -57,7 +66,7 @@ function startGame() {
 	/>
 	<GameStage
 		v-if="reset"
-		:gameOver="totalMatches == 12"
+		:gameOver="checkMatchNum(totalMatches)"
 		:start="start"
 		@updateTotalMatches="totalMatches++"
 		@updatePlayerMoves="playerMoves++"
