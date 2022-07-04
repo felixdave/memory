@@ -9,9 +9,9 @@ const emit = defineEmits(['resetEmit', 'beginEmit', 'playAgainEmit']);
 const loading = ref(false);
 // Funcs
 function formatTimer(sec) {
-	let hour = Math.floor(sec / 60);
+	let minute = Math.floor(sec / 60);
 	let seconds = (sec % 60).toString().length == 1 ? `0${sec % 60}` : sec % 60;
-	return `${hour}: ${seconds}`;
+	return `${minute}: ${seconds}`;
 }
 function startGame() {
 	// loading card, wait,then start game
