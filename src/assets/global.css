@@ -142,7 +142,6 @@ At Media
 		/* flex-grow: 1; */
 		/* align-content: flex-start; */
 		padding: 1rem;
-		opacity: 0.8;
 	}
 	#gameStage {
 		gap: 0.5rem;
