@@ -1,5 +1,7 @@
 # memory-game
 
+
+
 ## Project setup
 ```
 npm install
@@ -17,5 +19,6 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+See [App](./public/index.html).
 
 
