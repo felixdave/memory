@@ -1,29 +1,39 @@
 <script setup>
 // Props
-defineProps(['playerMoves', 'totalMatches', 'playTimer', 'start']);
+defineProps(['playerMoves', 'totalMatches', 'playTimer', 'start', 'reset']);
 // Emits
-const emit = defineEmits(['resetStage', 'beginThis']);
+const emit = defineEmits(['resetEmit', 'beginEmit', 'playAgainEmit']);
+
+function formatTimer(sec) {
+	let hour = Math.floor(sec / 60);
+	let seconds = (sec % 60).toString().length == 1 ? `0${sec % 60}` : sec % 60;
+	return `${hour}: ${seconds}`;
+}
 </script>
 
 <template>
 	<div v-if="!start" id="scoreCard" class="unselectableHTML">
 		<h1>MEMORY Score</h1>
 		<p>
-			Player Moves <span> {{ playerMoves }}</span>
+			Moves <span> {{ playerMoves }}</span>
 		</p>
 		<p>
-			Total Matches <span>{{ totalMatches }}/12</span>
+			Matches <span>{{ totalMatches }}/12</span>
 		</p>
 		<p>
-			PlayTime <span>{{ playTimer }}</span>
+			Time
+			<span>{{ formatTimer(playTimer) }}</span>
 		</p>
-		<button @click="$emit('resetStage')">RESET</button>
+		<button v-if="reset" @click="$emit('resetEmit')">RESET</button>
+		<button v-else @click="$emit('playAgainEmit')">Play Again</button>
 	</div>
-	<div v-if="start" id="scoreCard">
-		<h1>Accessing Memory...</h1>
-		<p>Shall we play a game?</p>
-		<button @click="$emit('beginThis')">Okay</button>
-	</div>
+	<transition name="animateShallWePlay" appear>
+		<div v-if="start" id="scoreCard">
+			<p class="center">Shall we play a game?</p>
+			<p class="center">Accessing Memory...</p>
+			<button @click="$emit('beginEmit')">START</button>
+		</div>
+	</transition>
 </template>
 
 <style lang="scss">
@@ -51,6 +61,9 @@ const emit = defineEmits(['resetStage', 'beginThis']);
 		flex: 1 1 100%;
 		justify-self: space-between;
 	}
+	.center {
+		text-align: center;
+	}
 	span {
 		float: right;
 	}
@@ -60,8 +73,9 @@ const emit = defineEmits(['resetStage', 'beginThis']);
 		color: #fff;
 		background-color: var(--blue);
 		border-radius: 50px;
-		border: 2px solid #fff;
+		border: none;
 		cursor: pointer;
+		box-shadow: 2px 2px 5px rgb(50, 50, 50);
 	}
 	button:hover {
 		box-shadow: 2px 2px 2px #333;
@@ -69,9 +83,10 @@ const emit = defineEmits(['resetStage', 'beginThis']);
 	}
 	button:active {
 		filter: brightness(100%);
-		color: var(--yellow);
+		color: #fff;
 		border-color: #fff;
-		box-shadow: -2px -2px 2px #333;
+		border: none;
+		box-shadow: inset 2px 2px 5px rgb(50, 50, 50);
 	}
 }
 </style>

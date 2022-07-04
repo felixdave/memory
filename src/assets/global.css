@@ -28,6 +28,21 @@ body {
 	-ms-user-select: none;
 	user-select: none;
 }
+/************************
+Animate Shall we play
+*************************/
+/* Enter */
+.animateShallWePlay-enter-active {
+	transition: all 2000ms ease;
+}
+.animateShallWePlay-enter-from {
+	transform: scale(0);
+}
+.animateShallWePlay-enter-to {
+	opacity: 1;
+	transform: scale(1);
+}
+
 /*************************
 Animate Game Start
 *************************/
@@ -45,14 +60,17 @@ Animate Game Start
 	transform: skew(0deg, 0deg) scale(1) translate(0px, 0px);
 }
 /* Leave */
-/* .animateStart-leave-active {
-	transition: all 200ms ease;
-} */
+.animateStart-leave-active {
+	/* transition-delay: 1s; */
+	/* transition: all 200ms ease; */
+}
 .animateStart-leave-from {
 	opacity: 1;
+	/* transition-delay: 1s; */
 }
 .animateStart-leave-to {
 	opacity: 0;
+	/* transform: skew(-10deg, 11deg) scale(2) translate(45px, -17px); */
 }
 
 /************************

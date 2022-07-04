@@ -2,9 +2,13 @@
 import { ref } from 'vue';
 import PlayingCard from '../ui/PlayingCard';
 // Props
-defineProps(['resetCards', 'start', 'displayWin']);
+defineProps(['start', 'gameOver']);
 // Emits
-const emit = defineEmits(['updateTotalMatches', 'updatePlayerMoves']);
+const emit = defineEmits([
+	'updateTotalMatches',
+	'updatePlayerMoves',
+	'startOver',
+]);
 // Vars
 const cardPairs = ref(12);
 const allCards = ref([]);
@@ -50,7 +54,6 @@ function pairNoMatch() {
 }
 // Func Selected Card
 function addCardToHand(index) {
-	// console.log(playerMoves);
 	// Adds first card index
 	if (hand.value.length == 0) {
 		emit('updatePlayerMoves');
@@ -77,6 +80,7 @@ function startOver() {
 	start.value = true;
 	console.log('start over');
 }
+
 // Invocations
 initGame();
 </script>
@@ -105,11 +109,11 @@ initGame();
 	</Transition>
 	<Transition name="animateMatch" :duration="500">
 		<div
-			v-if="displayWin"
-			@click="startOver"
+			v-if="gameOver"
+			@click="$emit('startOver')"
 			class="unselectableHTML matchDisplay"
 		>
-			<h1>You Won!</h1>
+			<h1>Game Over</h1>
 			<PlayingCard class="card1" :value="'U'" :isFaceUp="true" />
 			<PlayingCard class="card2" :value="1" :isFaceUp="true" />
 		</div>
@@ -120,20 +124,20 @@ initGame();
 #gameStage {
 	width: 100vmin;
 	max-width: 800px;
+	border-radius: 5px;
 	background-color: rgba(255, 255, 255, 0.5);
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-auto-flow: row dense;
-	align-content: flex-start;
-	gap: 1rem;
+	box-shadow: 2px 2px 50px rgb(50, 50, 50);
 	box-sizing: border-box;
 	font-size: 10vmin;
 	padding: 2rem;
-	transition: all 0.5s;
 	position: relative;
+	display: grid;
+	transition: all 0.5s;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	align-content: flex-start;
+	gap: 1rem;
 	z-index: 5;
-	border-radius: 5px;
-	box-shadow: 2px 2px 50px rgb(50, 50, 50);
 }
 .matchDisplay {
 	display: flex;

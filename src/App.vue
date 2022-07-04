@@ -4,34 +4,62 @@ import GameStage from './components/layout/GameStage.vue';
 import ScoreCard from './components/layout/ScoreCardArea.vue';
 // import { ref } from "vue";
 const playerMoves = ref(0);
-const totalMatches = ref(0);
+const totalMatches = ref(10);
 const playTimer = ref(0);
 const reset = ref(false);
-const begin = ref(true);
+const start = ref(true);
 
-function clearStage() {
+let intervalID;
+
+function startTime() {
+	if (!intervalID) {
+		intervalID = setInterval(() => {
+			playTimer.value++;
+		}, 1000);
+	}
+}
+function stopTime() {
+	clearInterval(intervalID);
+	intervalID = null;
+}
+
+function clearEvent() {
+	playTimer.value = 0;
 	playerMoves.value = 0;
 	totalMatches.value = 0;
-	playTimer.value = 0;
-	console.log('reset');
+	startTime();
+	reset.value = !reset.value;
+}
+function resetEvent() {
+	stopTime();
+	reset.value = !reset.value;
+}
+
+function startGame() {
+	startTime();
+	start.value = false;
+	reset.value = true;
 }
 </script>
 
 <template>
 	<ScoreCard
-		:playerMoves="playerMoves"
 		:totalMatches="totalMatches"
+		:playerMoves="playerMoves"
 		:playTimer="playTimer"
-		:start="begin"
-		@resetStage="clearStage"
-		@beginThis="begin = !begin"
+		:start="start"
+		:reset="reset"
+		@resetEmit="resetEvent"
+		@beginEmit="startGame"
+		@playAgainEmit="clearEvent"
 	/>
 	<GameStage
+		v-if="reset"
+		:gameOver="totalMatches == 12"
+		:start="start"
 		@updateTotalMatches="totalMatches++"
 		@updatePlayerMoves="playerMoves++"
-		:resetCards="reset"
-		:displayWin="totalMatches == 12"
-		:start="begin"
+		@startOver="resetEvent"
 	/>
 </template>
 
