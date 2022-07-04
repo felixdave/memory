@@ -24,14 +24,14 @@ function formatTimer(sec) {
 			Time
 			<span>{{ formatTimer(playTimer) }}</span>
 		</p>
-		<button v-if="reset" @click="$emit('resetEmit')">Reset</button>
-		<button v-else @click="$emit('playAgainEmit')">Play Again</button>
+		<button v-if="reset" @click.prevent="$emit('resetEmit')">Reset</button>
+		<button v-else @click.prevent="$emit('playAgainEmit')">Play Again</button>
 	</div>
 	<transition name="animateShallWePlay" appear>
 		<div v-if="start" id="scoreCard">
 			<p class="center">Shall we play a game?</p>
 			<p class="center">Accessing Memory...</p>
-			<button @click="$emit('beginEmit')">START</button>
+			<button @click.prevent="$emit('beginEmit')">START</button>
 		</div>
 	</transition>
 </template>
