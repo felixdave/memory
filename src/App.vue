@@ -2,13 +2,12 @@
 import { ref } from 'vue';
 import GameStage from './components/layout/GameStage.vue';
 import ScoreCard from './components/layout/ScoreCardArea.vue';
-// import { ref } from "vue";
+
 const playerMoves = ref(0);
 const totalMatches = ref(10);
 const playTimer = ref(0);
 const reset = ref(false);
 const start = ref(true);
-
 let intervalID;
 
 function startTime() {

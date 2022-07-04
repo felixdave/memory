@@ -1,13 +1,9 @@
 <script setup>
 import { ref } from 'vue';
-const compare = ref([]);
-//Note: use teleport for discarding.
+// Props
 defineProps(['value', 'isFaceUp', 'index']);
+// Emits
 defineEmits(['selectedCard']);
-
-// onMounted(() => {
-// 	getCurrNavHeight();
-// });
 </script>
 
 <template>
