@@ -89,4 +89,9 @@ function formatTimer(sec) {
 		box-shadow: inset 2px 2px 5px rgb(50, 50, 50);
 	}
 }
+/* 
+- unselectableHTML in global.class
+- animation in global.css
+- @media in global.css  
+*/
 </style>

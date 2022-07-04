@@ -56,11 +56,6 @@ defineEmits(['selectedCard']);
 		width: 100%;
 		color: black;
 	}
-	// .cardBack:hover {
-	// 	border-color: var(--yellow);
-	// 	box-shadow: 0px 0px 10px var(--yellow), 2px 2px 2px #333;
-	// 	filter: brightness(125%);
-	// }
 	.cardFront {
 		background-color: #fff;
 		color: red;
@@ -72,6 +67,9 @@ defineEmits(['selectedCard']);
 	transform: rotateY(180deg);
 }
 
-// unselectableHTML in global.class
-// animation in global.css
+/* 
+- unselectableHTML in global.class
+- animation in global.css
+- @media in global.css  
+*/
 </style>
