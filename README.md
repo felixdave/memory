@@ -9,7 +9,7 @@ When the user clicks a card, it flips over revealing its value.
 When the user clicks the next card, its value is revealed and then compared against the other face up card. If they are equal, both cards disappear. If they are different, they flip back down.
 The game continues until there are no cards left
 
-## Heads up display features:
+## Display:
 - Total moves it takes the player to finish the game 
 - Total matches the player makes throughout the game 
 - Total time in minutes and seconds it takes the player to complete the game

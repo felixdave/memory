@@ -170,6 +170,6 @@ initGame();
 	}
 }
 
-// @media in root component (app.vue)
+// @media in global.css
 // animation in global.css
 </style>
