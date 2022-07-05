@@ -14,7 +14,9 @@ const cardPairs = ref(12);
 const allCards = ref([]);
 const hand = ref([]);
 const displayMatch = ref(false);
-// Funcs
+// Functions
+
+// Setup game cards
 function initGame() {
 	const tempArr = [];
 
@@ -31,7 +33,7 @@ function initGame() {
 	}
 	return (allCards.value = tempArr);
 }
-// Func Match
+// Match condition
 function pairMatch() {
 	let el1 = document.querySelector(`[data-index='${hand.value[0]}']`);
 	let el2 = document.querySelector(`[data-index='${hand.value[1]}']`);
@@ -45,13 +47,13 @@ function pairMatch() {
 		hand.value = [];
 	}, 1500);
 }
-// Func No Match
+// No Match condition
 function pairNoMatch() {
 	setTimeout(() => {
 		hand.value = [];
 	}, 700);
 }
-// Func Selected Card
+// Compare cards
 function addCardToHand(index) {
 	// Adds first card index
 	if (hand.value.length == 0) {
@@ -67,7 +69,7 @@ function addCardToHand(index) {
 			: pairNoMatch();
 	}
 }
-// Func Face up/down against selection
+// Face up/down against selection
 function checkCards(index) {
 	if (index == hand.value[0] || index == hand.value[1]) {
 		return true;
@@ -75,7 +77,7 @@ function checkCards(index) {
 		return false;
 	}
 }
-// Invocations
+// Run setup game cards
 initGame();
 </script>
 

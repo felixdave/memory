@@ -10,8 +10,8 @@ const reset = ref(false);
 const start = ref(true);
 let intervalID;
 
+// Timer with delay start after card dealing animation
 function startTime() {
-	// Delay for card loading
 	setTimeout(() => {
 		if (!intervalID) {
 			intervalID = setInterval(() => {
@@ -21,11 +21,13 @@ function startTime() {
 		}
 	}, 2500);
 }
+
+// Stop timer
 function stopTime() {
 	clearInterval(intervalID);
 	intervalID = null;
 }
-
+// Clears values for score card
 function clearEvent() {
 	playTimer.value = 0;
 	playerMoves.value = 0;
@@ -33,6 +35,7 @@ function clearEvent() {
 	startTime();
 	reset.value = !reset.value;
 }
+
 function resetEvent() {
 	stopTime();
 	reset.value = !reset.value;
@@ -43,6 +46,8 @@ function startGame() {
 	start.value = false;
 	reset.value = true;
 }
+
+// Game goal to win
 function checkMatchNum(num) {
 	if (num == 12) {
 		stopTime();

@@ -7,15 +7,15 @@ defineProps(['playerMoves', 'totalMatches', 'playTimer', 'start', 'reset']);
 const emit = defineEmits(['resetEmit', 'beginEmit', 'playAgainEmit']);
 // Vars
 const loading = ref(false);
-// Funcs
+// Functions
 function formatTimer(sec) {
 	let minute = Math.floor(sec / 60);
 	let seconds = (sec % 60).toString().length == 1 ? `0${sec % 60}` : sec % 60;
 	return `${minute}: ${seconds}`;
 }
 
+// "Memory loading..." card delay,then start game
 function startGame() {
-	// loading card, wait,then start game
 	loading.value = true;
 	setTimeout(() => {
 		emit('beginEmit');
