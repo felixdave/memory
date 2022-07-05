@@ -82,6 +82,7 @@ initGame();
 </script>
 
 <template>
+	<!-- Main Game Stage  -->
 	<div id="gameStage" v-if="!start">
 		<TransitionGroup name="animateStart" appear>
 			<!-- Animation in CSS & Here for effect using index-->
@@ -96,6 +97,7 @@ initGame();
 			/>
 		</TransitionGroup>
 	</div>
+	<!-- Match Display  -->
 	<Transition name="animateMatch" :duration="500">
 		<div v-if="displayMatch" class="matchDisplay">
 			<h1>MATCH!</h1>
@@ -103,6 +105,7 @@ initGame();
 			<PlayingCard class="card2" :value="allCards[hand[1]]" :isFaceUp="true" />
 		</div>
 	</Transition>
+	<!-- Game Over -->
 	<Transition name="animateMatch" :duration="500">
 		<div
 			v-if="gameOver"
@@ -171,7 +174,8 @@ initGame();
 		transform: rotate(9deg);
 	}
 }
-
-// @media in global.css
-// animation in global.css
+/*
+ - @media in global.css
+ - animation in global.css
+*/
 </style>

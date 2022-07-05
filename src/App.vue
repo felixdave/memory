@@ -99,5 +99,7 @@ function checkMatchNum(num) {
 	background-blend-mode: multiply;
 }
 
-/* @media in global.css  */
+/* 
+- @media in global.css  
+*/
 </style>

@@ -25,6 +25,7 @@ function startGame() {
 </script>
 
 <template>
+	<!-- Score Card  -->
 	<div v-if="!start" id="scoreCard" class="unselectableHTML">
 		<h1>MEMORY Score</h1>
 		<p>
@@ -37,9 +38,11 @@ function startGame() {
 			Time
 			<span>{{ formatTimer(playTimer) }}</span>
 		</p>
+		<!-- Button: Reset & Play Again -->
 		<button v-if="reset" @click.prevent="$emit('resetEmit')">Reset</button>
 		<button v-else @click.prevent="$emit('playAgainEmit')">Play Again</button>
 	</div>
+	<!-- Intro - Shall we & Loading  -->
 	<transition name="animateShallWePlay" appear>
 		<div v-if="start" id="scoreCard">
 			<p v-if="!loading" class="shallWe">Shall we play a game?</p>
@@ -107,7 +110,7 @@ function startGame() {
 	}
 }
 /*
-- unselectableHTML in global.class
+- .unselectableHTML in global.class
 - animation in global.css
 - @media in global.css
 */

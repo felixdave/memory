@@ -67,7 +67,7 @@ defineEmits(['selectedCardEmit']);
 }
 
 /* 
-- unselectableHTML in global.class
+- .unselectableHTML in global.class
 - animation in global.css
 - @media in global.css  
 */
