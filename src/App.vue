@@ -10,7 +10,7 @@ const reset = ref(false);
 const start = ref(true);
 let intervalID;
 
-// Timer with delay start after card dealing animation
+// Start timer with delay for card dealing animation
 function startTime() {
 	setTimeout(() => {
 		if (!intervalID) {
